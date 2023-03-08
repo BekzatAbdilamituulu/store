@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block header %}
+  <h1>ДОБРО ПОЖАЛОВАТЬ</h1>
+  <p>Index.html</p>
+{% endblock %}
+{% block main %}
+    <h2>{{ data.title }}</h2>
+    <p>{{ data.description }}</p>
+    <p>{{ data.price }} som </p>
+    {% if data.images %}
+        <img src="{{ data.images.url }}" alt="{{ data.title }}" width="200" height="200">
+    {% endif %}       
+{% endblock %}
+
+{% block footer %}
+  <h2>Footer index</h2>
+  {% endblock %}

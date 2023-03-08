@@ -1,0 +1,14 @@
+{% extends "base1.html" %}
+{% block main %}
+<h3>Авторизация</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+        <p>{{ field.label }}: <br> {{ field }}</p>
+    {% endfor %}
+    <button type="submit">Готово</button>
+</form>
+
+<p>Еше не создали аккаунт? <a href="{% url 'register' %}">Зарегитрироватся</a></p>
+{% endblock %}

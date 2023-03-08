@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block header %}
+  <h1>ДОБРО ПОЖАЛОВАТЬ</h1>
+  <p>Index.html</p>
+{% endblock %}
+
+{% block category %}
+{% for c in cats %}
+<a href="{{ c.get_absolute_url }}">{{c.title}}</a>
+{% endfor %}
+{% endblock %}
+
+{% block main %}
+{% for c in products  %}
+<h2>{{ c.title }}</h2>
+<p>{{ c.price }} som </p>
+{% if c.images %}
+    <img src="{{ c.images.url }}" alt="{{ c.title }}" width="200" height="200">
+{% endif %}
+<p><a href="{{ c.get_absolute_url }}">О товаре</a></p>
+{% endfor %}
+        
+{% endblock %}
+
+{% block footer %}
+  <h2>Footer index</h2>
+  {% endblock %}

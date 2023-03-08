@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+<title>{% block title %} My site {% endblock%}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+</head>
+<body>
+<div class="header">
+  {% block header %}
+  <h1>ДОБРО ПОЖАЛОВАТЬ</h1>
+  <p></p>
+  {% endblock %}
+</div>
+<div class="navbar">
+    {% block navbar %}
+    <a href="{% url 'home' %}">Главная</a>
+
+    {% if user.is_authenticated %}
+    <a href="#" class="right">{{user.username}} </a>
+    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'register'%}" class="right">Регистрация</a>
+    {% else %}
+    <a href="{% url 'login' %}" class="right">Логин</a>
+    {% endif %}
+    {% endblock %}
+</div>
+<div class="row">
+  <div class="side">
+    {% block category %}
+    {% endblock %}
+  </div>
+  <div class="main">
+    {% block main %}
+    {% endblock %}
+  </div>
+</div>
+<div class="footer">
+    {% block footer %}
+  <h2>Footer</h2>
+  <a href="{% url 'about'%}">О Сайте</a>
+  <a href="{% url 'contact'%}"> Обратная связь</a>
+  {% endblock %}
+</div>
+</body>
+</html>
